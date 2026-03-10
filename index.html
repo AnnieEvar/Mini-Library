@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="main-content">
+        <div class="title">iLibrary</div>
+        <div class="description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.
+        </div>
+        <div class="add-container">
+            <div class="category-container">
+                <div class="category-text">Title</div>
+                <input type="text" placeholder="Enter title" class="textbox">
+            </div>
+            <div class="category-container">
+                <div class="category-text">Author</div>
+                <input type="text" placeholder="Enter author" class="textbox">
+            </div>
+            <div class="category-container">
+                <div class="category-text">Pages</div>
+                <input type="text" pattern="^[0-9]+$" placeholder="Enter pages" class="textbox">
+            </div>
+            <div class="category-container">
+                <div class="category-text">Status</div>
+                <select name="status" class="textbox">
+                    <option value="read">Read</option>
+                    <option value="unread">Unread</option>
+                </select>
+            </div>
+            <div class="addBook"> + Add book </div>
+        </div>
+        <div class="category-header">
+            <div>Title</div>
+            <div>Author</div>
+            <div>Pages</div>
+            <div>Status</div>
+        </div>
+        <div class="book-container">
+        </div>
+
+    </div>
+</body>
+</html>

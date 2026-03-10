@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* 
+{
+  margin: 0;
+  padding: 0;
+}
+
+:root
+{
+    --lavender: rgb(189, 189, 255);
+    --dark-lavender: rgb(47, 0, 61);
+    --standard-text: 25px "Google Sans";
+    --mini-text: 18px "Google Sans";
+}
+
+body
+{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+}
+
+.main-content
+{
+    margin-top: 100px;
+    width: 80%;
+    height: auto;
+    padding: 50px;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 0.5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 25px;
+}
+
+.title
+{
+    font: var(--standard-text);
+    font-size: 75px;
+}
+
+.description
+{
+    font: var(--standard-text);
+    color: rgb(128, 128, 128);
+}
+
+.add-container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addBook
+{
+    font: var(--standard-text);
+    border: solid var(--lavender) 3px;
+    color: var(--lavender);
+    border-radius: 20px;
+    padding: 3px 15px 3px 15px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+}
+
+.addBook:hover
+{
+    background-color: var(--lavender);
+    color: white;
+    cursor: pointer;
+}
+
+.category-container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;  
+}
+
+.category-text
+{
+    font: var(--mini-text);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.category-header
+{
+    font: var(--mini-text);
+    color: var(--dark-lavender);
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 4fr 3fr 1fr 1fr 1fr;
+}
+
+.textbox, .status
+{
+    border: solid black 1px;
+    font: var(--mini-text);
+    font-weight: 100;
+    border-radius: 20px;
+    padding: 3px 15px 3px 15px;
+    width: 140px;
+    height: 30px;
+}
+
+.status
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 120px;
+}
+
+.status:hover
+{
+    cursor: pointer;
+    opacity: 70%;
+}
+
+.textbox:focus
+{
+    outline: none;
+    border: solid var(--lavender) 2px;
+}
+
+.bookCard
+{
+    border: solid rgb(156, 156, 156) 1.5px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgb(245, 245, 245);
+    font: var(--mini-text);
+    display: grid;
+    margin-bottom: 10px;
+    grid-template-columns: 4fr 3fr 1fr 1fr 1fr;
+}
+
+.book-container
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-button
+{
+    background-color: red;
+    font: var(--mini-text);
+    border: none;
+    color: whitesmoke;
+    border-radius: 20px;
+    padding: 3px 10px 3px 10px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.delete-button:hover
+{
+    background-color: whitesmoke;
+    border: solid red 2px;
+    color: red;
+    cursor: pointer;
+}
