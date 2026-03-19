@@ -1,34 +1,52 @@
 const library = [];
 const mainContent = document.querySelector(".main-content");
 
-const book = {
-    _id: 0,
-    _author: "",
-    _title: "",
-    _pages: 0,
-    _isRead: false,
-
-    setBookData(author, title, pages, isRead)
-    {
-        this._author = author;
-        this._title = title;
-        this._pages = pages;
-        this._isRead = isRead;
-    },
-
-    getBookData()
-    {
-        return {author: this._author, title: this._title, pages: this._pages, isRead: this._isRead};
-    }
-};
-
-function Book(author, title, pages, isRead)
+class Book
 {
-    this._id = crypto.randomUUID();
-    this._author = author;
-    this._title = title;
-    this._pages = pages;
-    this._isRead = isRead;  
+    #id = 0;
+    #author = "";
+    #title = "";
+    #pages = "";
+    #isRead = false;
+
+    constructor(author, title, pages, isRead)
+    {
+        this.#id = crypto.randomUUID();
+        this.#author = author;
+        this.#title = title;
+        this.#pages = pages;
+        this.#isRead = isRead;
+    }
+
+    get id()
+    {
+        return this.#id;
+    }
+
+    get author()
+    {
+        return this.#author;
+    }  
+
+    get title()
+    {
+        return this.#title;
+    }
+    
+    get pages()
+    {
+        return this.#pages;
+    }
+
+    get isRead()
+    {
+        return this.#isRead;
+    }
+
+    toggleReadStatus()
+    {
+        this.#isRead = !this.#isRead;
+    }
 }
 
 function addBookToLibrary(book)
@@ -61,13 +79,13 @@ function displayBooks()
         newBookDelete.textContent = "Delete";
 
         // Set book data
-        newBookTitle.textContent = book._title;
-        newBookAuthor.textContent = book._author;
-        newBookPages.textContent = book._pages;
-        newBookStatus.textContent = book._isRead ? "Read" : "Not Read";
+        newBookTitle.textContent = book.title;
+        newBookAuthor.textContent = book.author;
+        newBookPages.textContent = book.pages;
+        newBookStatus.textContent = book.isRead ? "Read" : "Not Read";
 
         // Set data
-        newBookCard.dataset.id = book._id; // <div data-id=...>
+        newBookCard.dataset.id = book.id; // <div data-id=...>
 
         // Append elements to the book container
         newBookCard.appendChild(newBookTitle);
@@ -99,12 +117,6 @@ addBtn.addEventListener('click', () =>
     }
 })
 
-// Add prototype method to toggle read status
-Book.prototype.toggleReadStatus = function()
-{
-    this._isRead = !this._isRead;
-}
-
 // Event delegation for delete buttons and toggle read status buttons
 
 const bookContainer = document.querySelector(".book-container");
@@ -114,11 +126,11 @@ bookContainer.addEventListener('click', (event) =>
     // Check if the clicked element is a delete button
     if (event.target.classList.contains("delete-button")) 
     {
-        alert("Are you sure you want to delete this book?");
+        if (!confirm("Are you sure you want to delete this book?")) return;
 
         const bookCard = event.target.closest(".bookCard");
         const bookId = bookCard.dataset.id;
-        const bookIndex = library.findIndex(book => book._id === bookId);
+        const bookIndex = library.findIndex(book => book.id === bookId);
         if (bookIndex !== -1)
         {        
             library.splice(bookIndex, 1);
@@ -130,7 +142,7 @@ bookContainer.addEventListener('click', (event) =>
     {
         const bookCard = event.target.closest(".bookCard");
         const bookId = bookCard.dataset.id;
-        const book = library.find(book => book._id === bookId);
+        const book = library.find(book => book.id === bookId);
         if (book) 
         {
             book.toggleReadStatus();
